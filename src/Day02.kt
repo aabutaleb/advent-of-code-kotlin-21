@@ -18,9 +18,9 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        // first in Triple is the array index in the position, second is the
-        // positive/negative multiplier of depth, third is the aim multiplier, works for up/down, special case
-        // on forward
+        // first in Pair is the array index in the position, second is the
+        // positive/negative multiplier of aim, works for up/down, special case
+        // on forward to increase depth
         val instructions = mapOf<String, Pair<Int, Int>>("forward" to Pair(0, 1),
                 "down" to Pair (2, 1),
                 "up" to Pair (2, -1))

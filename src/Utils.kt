@@ -9,6 +9,8 @@ fun readInputString(name: String) = File("resources", "$name.txt").readLines()
 
 fun readInputInt(name: String) = File("resources", "$name.txt").readLines().map { it.toInt() }
 
+fun readCslInt(name: String): List<Int> = File("resources", "$name.txt").readLines().get(0).split(",").map { it.toInt() }.toList()
+
 /**
  * Converts string to md5 hash.
  */
