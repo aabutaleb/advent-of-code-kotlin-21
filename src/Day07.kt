@@ -25,15 +25,23 @@ fun main() {
     fun part2(input: List<Int>): Int {
         var mean = input.average().roundToInt()
         var cost = calculateCostsIncremental(input, mean)
-        println("Mean $mean Cost $cost")
+
+        //Go down
         var iter = mean - 1
         var newCost = calculateCostsIncremental(input, iter)
-        println("Pivot $iter Cost $newCost")
         while (newCost < cost){
             cost = newCost
             iter--
             newCost = calculateCostsIncremental(input, iter)
-            println("Pivot $iter Cost $newCost")
+        }
+
+        //Try up
+        iter = mean + 1
+        newCost = calculateCostsIncremental(input, iter)
+        while (newCost < cost){
+            cost = newCost
+            iter++
+            newCost = calculateCostsIncremental(input, iter)
         }
         return Math.min(cost, newCost)
     }
